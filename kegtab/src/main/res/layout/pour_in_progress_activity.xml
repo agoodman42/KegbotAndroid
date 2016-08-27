@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2014 Bevbot LLC <info@bevbot.com>
+  ~
+  ~ This file is part of the Kegtab package from the Kegbot project. For
+  ~ more information on Kegtab or Kegbot, see <http://kegbot.org/>.
+  ~
+  ~ Kegtab is free software: you can redistribute it and/or modify it under
+  ~ the terms of the GNU General Public License as published by the Free
+  ~ Software Foundation, version 2.
+  ~
+  ~ Kegtab is distributed in the hope that it will be useful, but WITHOUT
+  ~ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  ~ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+  ~ more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along
+  ~ with Kegtab. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="top"
+              android:orientation="horizontal"
+              android:weightSum="1.0">
+
+    <!-- Left box: PourStatusFragment -->
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tapPager"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_marginRight="10dip"
+        android:layout_weight="0.6">
+    </android.support.v4.view.ViewPager>
+
+    <!-- Right box: Camera Preview & Controls -->
+
+    <LinearLayout
+        android:id="@+id/pourInProgressRightCol"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="0.4"
+        android:gravity="top"
+        android:background="@drawable/shape_rounded_rect"
+        android:orientation="vertical">
+
+        <ViewFlipper
+            android:id="@+id/pour_controls_flipper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                style="@style/header2"
+                android:text="@string/pour_tap_idle"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/claimPourButton"
+                    style="@style/mediumButton"
+                    android:text="@string/pour_button_claim"/>
+
+                <TextView
+                    android:id="@+id/pourDrinkerName"
+                    style="@style/header"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/controlsBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dip">
+
+                    <ImageView
+                        android:id="@+id/pourDrinkerImage"
+                        android:layout_width="128dip"
+                        android:layout_height="128dip"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="5dip"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/unknown_drinker"/>
+
+                    <org.kegbot.app.util.SoftMultiLineEditText
+                        android:id="@+id/shoutText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_toRightOf="@+id/pourDrinkerImage"
+                        android:hint="@string/pour_shout_hint"
+                        android:imeOptions="actionDone"
+                        android:inputType="textCapSentences|textShortMessage|textMultiLine"
+                        android:lines="3"
+                        android:maxLength="140"
+                        android:scrollHorizontally="false"/>
+
+                    <Button
+                        android:id="@+id/pourEndButton"
+                        style="@style/mediumButton"
+                        android:layout_below="@+id/shoutText"
+                        android:layout_toRightOf="@+id/pourDrinkerImage"
+                        android:layout_alignBottom="@+id/pourDrinkerImage"
+                        android:text="@string/pour_button_done"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            </ViewFlipper>
+
+
+        <fragment
+            android:id="@+id/camera"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="org.kegbot.app.camera.CameraFragment"
+            tools:layout="@layout/camera_fragment_layout">
+        </fragment>
+    </LinearLayout>
+
+</LinearLayout>

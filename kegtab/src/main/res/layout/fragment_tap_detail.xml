@@ -1,0 +1,255 @@
+<!--
+  ~ Copyright 2014 Bevbot LLC <info@bevbot.com>
+  ~
+  ~ This file is part of the Kegtab package from the Kegbot project. For
+  ~ more information on Kegtab or Kegbot, see <http://kegbot.org/>.
+  ~
+  ~ Kegtab is free software: you can redistribute it and/or modify it under
+  ~ the terms of the GNU General Public License as published by the Free
+  ~ Software Foundation, version 2.
+  ~
+  ~ Kegtab is distributed in the hope that it will be useful, but WITHOUT
+  ~ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  ~ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+  ~ more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along
+  ~ with Kegtab. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".TapDetailFragment">
+
+    <TextView
+        android:id="@+id/tapDetailTitle"
+        style="@style/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp"
+        android:text="Main Tap"/>
+
+    <Switch
+        android:id="@+id/tapEnabledSwitch"
+        style="@style/smallText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tapDetailTitle"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:textColor="@android:color/darker_gray"/>
+
+    <View
+        android:id="@+id/divider0"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_below="@+id/tapDetailTitle"
+        android:layout_marginBottom="8dp"
+        android:background="#1FFFFFFF"/>
+
+    <ViewFlipper
+        android:id="@+id/tapControlsFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tapDetailTitle">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/tapControlsGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/onTapGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginRight="64dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/onTapTitle"
+                        style="@style/header2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:text="On Tap: Sierra Nevada (12% full)"
+                        android:textAllCaps="true"/>
+
+                    <View
+                        android:id="@+id/divider1"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dip"
+                        android:layout_below="@+id/onTapTitle"
+                        android:layout_marginBottom="8dp"
+                        android:background="#1FFFFFFF"/>
+
+                    <LinearLayout
+                        android:id="@+id/kegButtons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/divider1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <Button
+                            android:id="@+id/tapKegButton"
+                            style="@style/mediumButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="End Keg"/>
+
+                        <Button
+                            android:id="@+id/calibrateButton"
+                            style="@style/mediumButton"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Calibrate Meter"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/tapHardwareGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/onTapGroup"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginRight="64dp">
+
+                    <TextView
+                        android:id="@+id/tapHardwareTitle"
+                        style="@style/header2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:text="Hardware Settings"
+                        android:textAllCaps="true"/>
+
+                    <View
+                        android:id="@+id/divider3"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dip"
+                        android:layout_below="@+id/tapHardwareTitle"
+                        android:layout_marginBottom="8dp"
+                        android:background="#1FFFFFFF"/>
+
+                    <LinearLayout
+                        android:id="@+id/meterSettings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/divider3"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/meterTitle"
+                            style="@style/smallText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_marginBottom="4dp"
+                            android:layout_weight="1"
+                            android:text="Flow sensor connected to this tap:"
+                            android:textAlignment="gravity"/>
+
+                        <Spinner
+                            android:id="@+id/meterSelect"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/meterTitle"
+                            android:layout_marginBottom="16dp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/toggleSettings"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/meterSettings"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/toggleTitle"
+                            style="@style/smallText"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_marginBottom="4dp"
+                            android:layout_weight="1"
+                            android:text="Toggle connected to this tap (optional):"
+                            android:textAlignment="gravity"/>
+
+                        <Spinner
+                            android:id="@+id/toggleSelect"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/dangerZoneGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tapHardwareGroup"
+                    android:layout_marginBottom="32dp"
+                    android:layout_marginLeft="64dp"
+                    android:layout_marginRight="64dp"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/dangerZoneTitle"
+                        style="@style/header2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:text="Danger Zone"
+                        android:textAllCaps="true"/>
+
+                    <View
+                        android:id="@+id/divider4"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dip"
+                        android:layout_below="@+id/dangerZoneTitle"
+                        android:layout_marginBottom="8dp"
+                        android:background="#1FFFFFFF"/>
+
+                    <Button
+                        android:id="@+id/deleteTapButton"
+                        style="@style/mediumButton"
+                        android:layout_below="@+id/divider4"
+                        android:text="Delete Tap"/>
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#333333">
+
+            <TextView
+                style="@style/jumboText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/edit_tap_disabled"/>
+        </RelativeLayout>
+
+    </ViewFlipper>
+
+</RelativeLayout>

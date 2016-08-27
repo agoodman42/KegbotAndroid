@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2014 Bevbot LLC <info@bevbot.com>
+  ~
+  ~ This file is part of the Kegtab package from the Kegbot project. For
+  ~ more information on Kegtab or Kegbot, see <http://kegbot.org/>.
+  ~
+  ~ Kegtab is free software: you can redistribute it and/or modify it under
+  ~ the terms of the GNU General Public License as published by the Free
+  ~ Software Foundation, version 2.
+  ~
+  ~ Kegtab is distributed in the hope that it will be useful, but WITHOUT
+  ~ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  ~ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+  ~ more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along
+  ~ with Kegtab. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/shape_rounded_rect"
+              android:gravity="top"
+              android:minHeight="64dip"
+              android:orientation="vertical">
+
+    <!-- Header -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/sessionSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Session"
+            android:textColor="#888"
+            style="@style/header2"/>
+
+        <TextView
+            android:id="@+id/sessionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24dip"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="#1FFFFFFF"/>
+
+    <!-- Rest of content -->
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:orientation="horizontal">
+
+            <!-- Num Drinkers -->
+
+            <org.kegbot.app.view.BadgeView
+                android:id="@+id/numDrinkersBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@color/black20pct">
+            </org.kegbot.app.view.BadgeView>
+
+            <org.kegbot.app.view.BadgeView
+                android:id="@+id/sessionVolumeBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@color/black20pct">
+            </org.kegbot.app.view.BadgeView>
+
+            <org.kegbot.app.view.BadgeView
+                android:id="@+id/sessionDrinker1Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@color/black20pct">
+            </org.kegbot.app.view.BadgeView>
+
+            <org.kegbot.app.view.BadgeView
+                android:id="@+id/sessionDrinker2Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@color/black20pct">
+            </org.kegbot.app.view.BadgeView>
+
+            <org.kegbot.app.view.BadgeView
+                android:id="@+id/sessionDrinker3Badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dip"
+                android:background="@color/black20pct">
+            </org.kegbot.app.view.BadgeView>
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

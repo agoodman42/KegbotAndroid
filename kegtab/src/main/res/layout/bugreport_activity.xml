@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2014 Bevbot LLC <info@bevbot.com>
+  ~
+  ~ This file is part of the Kegtab package from the Kegbot project. For
+  ~ more information on Kegtab or Kegbot, see <http://kegbot.org/>.
+  ~
+  ~ Kegtab is free software: you can redistribute it and/or modify it under
+  ~ the terms of the GNU General Public License as published by the Free
+  ~ Software Foundation, version 2.
+  ~
+  ~ Kegtab is distributed in the hope that it will be useful, but WITHOUT
+  ~ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  ~ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+  ~ more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along
+  ~ with Kegtab. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:padding="32dp">
+
+    <TextView
+        android:id="@+id/bugreportTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bugreport_title"
+        android:textSize="32dp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/bugreportMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dip"
+        android:textSize="24dp"
+        android:text="@string/bugreport_message_idle"/>
+
+    <ProgressBar
+        android:id="@+id/bugreportProgress"
+        style="@android:style/Widget.Holo.ProgressBar.Horizontal"
+        android:layout_width="512dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dip"/>
+
+    <EditText
+        android:id="@+id/bugreportDetail"
+        android:layout_width="512dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/bugreport_detail_hint"
+        android:inputType="textCapSentences|textMultiLine"
+        android:lines="4"
+        android:scrollHorizontally="false"/>
+
+    <EditText
+        android:layout_width="512dp"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/bugreportEmail"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/bugreport_email"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/bugreportButton"
+        android:layout_width="512dp"
+        android:layout_height="wrap_content"
+        android:text="@string/bugreport_button_idle"/>
+
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2014 Bevbot LLC <info@bevbot.com>
+  ~
+  ~ This file is part of the Kegtab package from the Kegbot project. For
+  ~ more information on Kegtab or Kegbot, see <http://kegbot.org/>.
+  ~
+  ~ Kegtab is free software: you can redistribute it and/or modify it under
+  ~ the terms of the GNU General Public License as published by the Free
+  ~ Software Foundation, version 2.
+  ~
+  ~ Kegtab is distributed in the hope that it will be useful, but WITHOUT
+  ~ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  ~ FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for
+  ~ more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License along
+  ~ with Kegtab. If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_rounded_rect"
+                android:orientation="vertical">
+
+    <!-- Tap Name Header -->
+
+    <TextView
+        android:id="@+id/tapTitle"
+        style="@style/header"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/tapSubtitle"
+        style="@style/subheader"
+        android:layout_toRightOf="@+id/tapTitle"
+        android:layout_alignBaseline="@+id/tapTitle"/>
+
+    <View
+        android:id="@+id/tap_detail_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:layout_below="@+id/tapTitle"
+        android:background="#1FFFFFFF"/>
+
+    <!-- Inner contents -->
+
+    <ViewFlipper
+        android:id="@+id/tapStatusFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tap_detail_divider">
+
+        <include
+            android:id="@+id/tapLoadingView"
+            layout="@layout/tap_detail_loading"/>
+
+        <include
+            android:id="@+id/tapInactiveView"
+            layout="@layout/tap_detail_inactive"/>
+
+        <include
+            android:id="@+id/tapActiveView"
+            layout="@layout/tap_detail_loaded"/>
+    </ViewFlipper>
+
+</RelativeLayout>
